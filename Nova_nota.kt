@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged // classe doAfterTextChanged para executar algo depois que o texto mudar
 import android.content.Context // classe Context para acessar recursos e serviços
-import com.example.bloco_de_notas.R
 
 class Nova_nota : AppCompatActivity() {
     lateinit var voltar : TextView // Declararando o TextView para voltar à tela home
@@ -32,11 +31,11 @@ class Nova_nota : AppCompatActivity() {
         tituloTextView.text = titulo_nota
 
         // Carrega o conteudo da nota salvo anteriormente
-        val sharedPreferences = getSharedPreferences("MeuAppDeNotas", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("DarkNote", Context.MODE_PRIVATE) //arquivo de preferências que vai ser acessível apenas pelo aplicativo
         val textoSalvo = sharedPreferences.getString("nota_texto_$notaId", "")
         notaemtext.setText(textoSalvo)
 
-        // Salva o conteúdo da nota quando o usuario alterar alguma coisa
+        // ira salva o conteúdo da nota quando o usuario alterar alguma coisa
         notaemtext.doAfterTextChanged { texto ->
             sharedPreferences.edit().putString("nota_texto_$notaId", texto.toString()).apply()
         }
