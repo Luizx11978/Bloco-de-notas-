@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.bloco_de_notas.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var info : TextView
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         info.setOnClickListener{
 
             val tamanholetras_mensagem = TextView(this).apply { //personalizando o tamanho das letras e colocando padding pra ficar no meio
-                text = "Gustavo Rodrigues Lima - 03337529\\nMarcos Gian Barreto Carlos - 03338257\nLuiz Augusto"
+                text = "Gustavo Rodrigues Lima - 03337529\nMarcos Gian Barreto Carlos - 03338257\nLuiz Augusto Bomfim Batista - 03319661"
                 textSize = 13f // colocando tamanhho da fonte (estava quebrando linha e teve que diminuir)
                 setPadding(50, 50, 50, 50) // colocando o padding
             }
