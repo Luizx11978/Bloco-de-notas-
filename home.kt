@@ -1,6 +1,7 @@
 package com.example.blocodenotas
 
 import android.content.Intent //classe Intent para permitir a navegação entre atividades
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import android.widget.LinearLayout
-import com.example.bloco_de_notas.R
 
 class home : AppCompatActivity() {
     private lateinit var area_das_notas: LinearLayout // Declarando a área onde as notas serão armazenadas ttemporariamente
@@ -25,25 +25,25 @@ class home : AppCompatActivity() {
         area_das_notas = findViewById(R.id.area_das_notas) // Encontra a área de notas na tela .cml pelo id
 
         buttonnovanota.setOnClickListener {
-            mostrarcaixadedialogo() //chamando aa função de alerta de nova nota
+            mostrarcaixadealerta() //chamando aa função de alerta de nova nota
         }
     }
 
-    private fun mostrarcaixadedialogo() {
+    private fun mostrarcaixadealerta() {
         val caixadialogo = AlertDialog.Builder(this) // Criando um AlertDialog para exibir o diálogo
-        caixadialogo.setTitle("Criando nova Nota") //título do diálogo
+        caixadialogo.setTitle("Nova Nota Trevosa") //título do diálogo
 
         val input_de_titulo = EditText(this) // Cria um EditText para adicionar o título da nota
-        input_de_titulo.hint = "Título da Nota"
+        input_de_titulo.hint = "Título da Dark Nota"
         caixadialogo.setView(input_de_titulo)
 
-        caixadialogo.setPositiveButton("CRIAR") { dialog, which -> // criando o botão "Criar" do diálogo
+        caixadialogo.setPositiveButton("Criar \uD83D\uDDA4 ") { dialog, which -> // criando o botão "Criar" do diálogo (emoji de um coração)
             val titulonota = input_de_titulo.text.toString() // Obtém o texto inserido no EditText
             if (titulonota.isNotEmpty()) { // Verifica se o texto que foi adicionado não está vazio
                 adicionarnota(titulonota) // Adiciona a nova nota na tela
             }
         }
-        caixadialogo.setNegativeButton("Cancelar", null) // criando o botão "Cancelar" do diálogo
+        caixadialogo.setNegativeButton("\uD83E\uDD87 Cancelar", null) // criando o botão "Cancelar" do diálogo(emoji de morcego)
         caixadialogo.show()
     }
 
@@ -54,7 +54,8 @@ class home : AppCompatActivity() {
 
             text = titulo // Define o texto do TextView como o título da nota
             textSize = 18f // Define o tamanho do texto
-            setPadding(16, 16, 0, 16) // Define o preenchimento do TextView
+            setPadding(32, 16, 0, 16) // Define o preenchimento do TextView
+
 
 
             setOnClickListener { // Define o comportamento ao clicar no TextView
